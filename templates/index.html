@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Dataframe</title>
+  </head>
+  <body>
+    <h1>My Dataframe</h1>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Salary</th>
+      </tr>
+      {% for index, row in rows %}
+      <tr>
+        <td>{{ row.Name }}</td>
+        <td>{{ row.Age }}</td>
+        <td>{{ row.Salary }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>

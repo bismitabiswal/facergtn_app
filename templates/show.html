@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+	<meta charset="UTF-8">
+	<title>Attendance</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='show.css') }}">
+</head>
+<body>
+<h1>Attendance</h1>
+<main>
+	<table>
+		<thead>
+			<tr>
+				<th>Roll Number</th>
+        			<th>Name</th>
+        			<th>Subject</th>
+        			<th>Attendance Time</th>
+        			<th>Attendance</th>
+				<th></th>
+      			</tr>
+    		</thead>
+    		<tfoot>
+      			<tr>
+				<th colspan='6'>Date: {{ date }}</th>
+      			</tr>
+    		</tfoot>
+    		<tbody>
+		{% for index, row in rows %}
+      			<tr>
+        			<td data-title='Roll Number'>{{ row.student_id }}</td>
+        			<td data-title='Name'>{{ row.student_name }}</td>
+				<td data-title='Subject'>{{ row.subject_name }}</td>
+				<td data-title='Attendance Time'>{{ row.attendance_capture_time }}</td>
+				<td data-title='Attendance'>{{ row.status }}</td>
+				<td class='select'>
+					<a class='button' href="/change/{{ row.student_id }}">Change</a>
+        			</td>
+      			</tr>
+		{% endfor %}
+      		</tbody>
+  	</table>
+  <div class='detail'>
+    <div class='detail-container'>
+      <dl>
+        <dt>
+          Provider Name
+        </dt>
+        <dd>
+          John Doe
+        </dd>
+        <dt>
+          E-mail
+        </dt>
+        <dd>
+          email@example.com
+        </dd>
+        <dt>
+          City
+        </dt>
+        <dd>
+          Detroit
+        </dd>
+        <dt>
+          Phone-Number
+        </dt>
+        <dd>
+          555-555-5555
+        </dd>
+        <dt>
+          Last Update
+        </dt>
+        <dd>
+          Jun 20 2014
+        </dd>
+        <dt>
+          Notes
+        </dt>
+        <dd>
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.
+        </dd>
+      </dl>
+    </div>
+    <div class='detail-nav'>
+      <button class='close'>
+        Close
+      </button>
+    </div>
+  </div>
+</main>
+</body>
+</html>
